@@ -3,7 +3,7 @@ using UnityEngine.XR.MagicLeap;
 
 namespace EyeTracking
 {
-	public class EyeTrackingDemoController : MonoBehaviour
+	public class EyePositionIndicator : MonoBehaviour
 	{
 		[SerializeField]
 		Transform _eyePosIndicator;
@@ -18,7 +18,7 @@ namespace EyeTracking
 		int _smoothBufferSize;
 
 		[SerializeField, Range(0f, 1f)]
-		float _smoothBufferconfidenceThreshold;
+		float _smoothBufferConfidenceThreshold;
 
 		Camera _mainCamera;
 		EyePositionBuffer _eyePositions;
@@ -26,13 +26,13 @@ namespace EyeTracking
 		void OnValidate()
 		{
 			_eyePositions = new EyePositionBuffer(
-				_smoothBufferSize, _smoothBufferconfidenceThreshold);
+				_smoothBufferSize, _smoothBufferConfidenceThreshold);
 		}
 
 		void Start()
 		{
 			_eyePositions = new EyePositionBuffer(
-				_smoothBufferSize, _smoothBufferconfidenceThreshold);
+				_smoothBufferSize, _smoothBufferConfidenceThreshold);
 
 			_mainCamera = Camera.main;
 
